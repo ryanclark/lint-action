@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+
 const { run } = require("../utils/action");
 const commandExists = require("../utils/command-exists");
 const { initLintResult } = require("../utils/lint-result");
@@ -69,7 +71,7 @@ class Prettier {
 
 		const paths = output.stdout.split(/\r?\n/);
 		lintResult.error = paths.map((path) => ({
-			path,
+			path: resolve(dir, path),
 			firstLine: 1,
 			lastLine: 1,
 			message:

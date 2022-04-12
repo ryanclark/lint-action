@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+
 const { run } = require("../utils/action");
 const commandExists = require("../utils/command-exists");
 const { initLintResult } = require("../utils/lint-result");
@@ -89,7 +91,7 @@ class ESLint {
 				}
 
 				const entry = {
-					path,
+					path: resolve(dir, path),
 					firstLine: line,
 					lastLine: line,
 					message: `${removeTrailingPeriod(message)} (${ruleId})`,
