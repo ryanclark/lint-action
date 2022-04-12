@@ -1,3 +1,5 @@
+const core = require("@actions/core");
+
 const { resolve } = require('path');
 
 const { run } = require("../utils/action");
@@ -78,10 +80,10 @@ class ESLint {
 			);
 		}
 
-		console.log('testing!');
-		console.log(dir);
-		console.log(output);
-		
+		core.info('testing!');
+		core.info(dir);
+		core.info(output.stdout);
+
 		for (const violation of outputJson) {
 			const { filePath, messages } = violation;
 			const path = filePath.substring(dir.length + 1);

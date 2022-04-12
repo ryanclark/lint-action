@@ -1,3 +1,5 @@
+const core = require('@actions/core');
+
 const { resolve } = require('path');
 
 const { run } = require("../utils/action");
@@ -69,9 +71,9 @@ class Prettier {
 			return lintResult;
 		}
 
-		console.log('testing!');
-		console.log(dir);
-		console.log(output);
+		core.info('testing!');
+		core.info(dir);
+		core.info(output.stdout);
 
 		const paths = output.stdout.split(/\r?\n/);
 		lintResult.error = paths.map((path) => ({
