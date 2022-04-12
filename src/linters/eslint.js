@@ -78,6 +78,10 @@ class ESLint {
 			);
 		}
 
+		console.log('testing!');
+		console.log(dir);
+		console.log(output);
+		
 		for (const violation of outputJson) {
 			const { filePath, messages } = violation;
 			const path = filePath.substring(dir.length + 1);

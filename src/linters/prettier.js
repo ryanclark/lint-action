@@ -69,6 +69,10 @@ class Prettier {
 			return lintResult;
 		}
 
+		console.log('testing!');
+		console.log(dir);
+		console.log(output);
+
 		const paths = output.stdout.split(/\r?\n/);
 		lintResult.error = paths.map((path) => ({
 			path: resolve(dir, path),
